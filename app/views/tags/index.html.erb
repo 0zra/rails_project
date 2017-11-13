@@ -1,0 +1,15 @@
+<h1>All Tags</h1>
+<%list_of_all_tags = []%>
+<% @articles.each do |article| %>
+<% article.tags.each do |tag| %>
+  <% list_of_all_tags.push(tag) %>
+<% end %>
+<% end %>
+<%list_of_all_tags.pop%>
+<%list_of_all_tags = list_of_all_tags.uniq%>
+<ul><% list_of_all_tags.each do |tag| %>
+  <li><%= link_to tag.name, tag_path(tag) %></li>
+<% end %>
+</ul>
+
+</ul>
